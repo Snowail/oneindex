@@ -12,7 +12,7 @@
 <body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue">
 	<header class="nav">
 		<div class="navSize">
-			<a href="/"><img class="avatar" src="avatar.png"/></a>
+			<a href="/">Index</a>
 			<div class="navRight">
 				<ul class="navul">
 					<!-- <li class="navli"><a href="/images">图床</a></li> -->
