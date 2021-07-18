@@ -4,7 +4,7 @@ class redis_{
         private $redis;
 
         function __construct($config = null){
-                $this->redis = new Predis\Client(getenv('REDIS_URL'));
+                $this->redis = new Redis();
                 if(empty($config)){
                         $config = 'pc5e1edd5839cc313befe434abd0844b1beaa733512f65d5ad956bd449ee573a1@ec2-54-226-76-107.compute-1.amazonaws.com:10689';
                 }
