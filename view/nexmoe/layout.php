@@ -13,11 +13,10 @@
 <body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue">
 	<header class="nav">
 		<div class="navSize">
-			<a href="/"><img class="avatar" src="//q.qlogo.cn/g?b=qq&nk=791270330&s=100"/></a>
+			<a href="/"><img class="avatar" src="avatar.png"/></a>
 			<div class="navRight">
 				<ul class="navul">
 					<!-- <li class="navli"><a href="/images">图床</a></li> -->
-					<li class="navli"><a href="https://ihopess.layne666.cn" target="_blank">iHopess</a></li>
 					<li class="navli"><a href="https://layne666.cn" target="_blank">博客</a></li>
 					<li class="navli"><a href="/login" target="_blank">登陆</a></li>
 				</ul>
