@@ -1,4 +1,17 @@
 <?php view::layout('layout')?>
+
+<?php 
+    function isImage($filename){
+      $types = '(\.jpg$|\.png$|\.jpeg$|\.gif$|\.JPEG$|\.JPG$|\.PNG$|\.GIF$)';
+      if(preg_match($types, trim($filename))){
+          return true;
+      }else{
+          return false;
+      }
+    }
+  ?>
+
+
 <?php 
 function file_ico($item){
   $ext = strtolower(pathinfo($item['name'], PATHINFO_EXTENSION));
@@ -94,12 +107,16 @@ function file_ico($item){
 			<?php else:?>
 		<li class="mdui-list-item file mdui-ripple">
 			<a href="<?php echo get_absolute_path($root.$path).rawurlencode($item['name']);?>" target="_blank">
+              <?php if(isImage($item['name'])):?>
+			  <img class="mdui-img-fluid" src="<?php echo get_absolute_path($root.$path).rawurlencode($item['name']); ?>">
+              <?php else:?>
 			  <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate">
 				<i class="mdui-icon material-icons"><?php echo file_ico($item);?></i>
 		    	<span><?php e($item['name']);?></span>
 			  </div>
 			  <div class="mdui-col-sm-3 mdui-text-right"><?php echo date("Y-m-d H:i:s", $item['lastModifiedDateTime']);?></div>
 			  <div class="mdui-col-sm-2 mdui-text-right"><?php echo onedrive::human_filesize($item['size']);?></div>
+              <?php endif;?>
 		  	</a>
 		</li>
 			<?php endif;?>
