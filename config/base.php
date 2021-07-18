@@ -3,11 +3,7 @@
   'password' => 'oneindex',
   'style' => 'nexmoe',
   'onedrive_root' => '',
-<<<<<<< HEAD
   'cache_type' => 'filecache',
-=======
-  'cache_type' => 'filecache',
->>>>>>> parent of 21ffba1 (update redis)
   'cache_expire_time' => 3600,
   'cache_refresh_time' => 600,
   'onedrive_hide' => 'images',
