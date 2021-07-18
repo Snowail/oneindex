@@ -4,7 +4,7 @@
   'style' => 'nexmoe',
   'onedrive_root' => '',
 <<<<<<< HEAD
-  'cache_type' => 'secache',
+  'cache_type' => 'filecache',
 =======
   'cache_type' => 'filecache',
 >>>>>>> parent of 21ffba1 (update redis)

@@ -5,11 +5,7 @@ class redis_{
         function __construct($config = null){
                 $this->redis = new Redis();
                 if(empty($config)){
-<<<<<<< HEAD
-                        $config = 'pc5e1edd5839cc313befe434abd0844b1beaa733512f65d5ad956bd449ee573a1@ec2-54-226-76-107.compute-1.amazonaws.com:10689';
-=======
                         $config = 'localhost:6379';
->>>>>>> parent of 21ffba1 (update redis)
                 }
                 list($host, $port) = explode(':', $config, 2);
                 $this->redis->pconnect($host, $port);

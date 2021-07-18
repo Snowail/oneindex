@@ -11,7 +11,7 @@
 	    	if(!is_null($instance)){
 		    	return $instance;
 	    	}
-	    	
+
 			list($type, $config) = explode(':', self::$type, 2);
 
 			$type .= '_';
@@ -67,7 +67,7 @@
 			self::del($key);
 			return $value;
 		}
-		
+
 		 static function refresh_cache($path, $next=true){
             $path2 = onedrive::urlencode($path);
             set_time_limit(0);
