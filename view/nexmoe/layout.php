@@ -7,6 +7,7 @@
 	<link rel="shortcut icon" href="/theme/favicon.ico">
 	<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.1/css/mdui.css">
 	<link rel="stylesheet" href="/theme/style.css">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.1/js/mdui.min.js"></script>
 </head>
 <body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue">

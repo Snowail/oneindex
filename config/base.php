@@ -1,20 +1,20 @@
 <?php return array (
-  'site_name' => 'OneIndex',
+  'site_name' => 'Palace of Eternity | 永遠庭',
   'password' => 'oneindex',
   'style' => 'nexmoe',
   'onedrive_root' => '',
-  'cache_type' => 'filecache',
+  'cache_type' => 'secache',
   'cache_expire_time' => 3600,
   'cache_refresh_time' => 600,
   'onedrive_hide' => 'images',
   'root_path' => '',
-  'show' => 
+  'show' =>
   array (
-    'stream' => 
+    'stream' =>
     array (
       0 => 'txt',
     ),
-    'image' => 
+    'image' =>
     array (
       0 => 'bmp',
       1 => 'jpg',
@@ -22,16 +22,16 @@
       3 => 'png',
       4 => 'gif',
     ),
-    'video5' => 
+    'video5' =>
     array (
     ),
-    'video' => 
+    'video' =>
     array (
       0 => 'mp4',
       1 => 'webm',
       2 => 'mkv',
     ),
-    'video2' => 
+    'video2' =>
     array (
       0 => 'avi',
       1 => 'mpg',
@@ -44,13 +44,13 @@
       8 => 'ts',
       9 => 'flv',
     ),
-    'audio' => 
+    'audio' =>
     array (
       0 => 'ogg',
       1 => 'mp3',
       2 => 'wav',
     ),
-    'code' => 
+    'code' =>
     array (
       0 => 'html',
       1 => 'htm',
@@ -64,7 +64,7 @@
       9 => 'sh',
       10 => 'md',
     ),
-    'doc' => 
+    'doc' =>
     array (
       0 => 'csv',
       1 => 'doc',
@@ -86,11 +86,11 @@
       17 => 'xlsx',
     ),
   ),
-  'images' => 
+  'images' =>
   array (
     'home' => false,
     'public' => false,
-    'exts' => 
+    'exts' =>
     array (
       0 => 'jpg',
       1 => 'png',
