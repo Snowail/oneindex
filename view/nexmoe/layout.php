@@ -10,19 +10,7 @@
 	<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.1/js/mdui.min.js"></script>
 </head>
 <body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue">
-	<header class="nav">
-		<div class="navSize">
-			<a href="/">Index</a>
-			<div class="navRight">
-				<ul class="navul">
-					<!-- <li class="navli"><a href="/images">图床</a></li> -->
-					<li class="navli"><a href="https://layne666.cn" target="_blank">博客</a></li>
-					<li class="navli"><a href="/login" target="_blank">登陆</a></li>
-				</ul>
-				<div class="icon"></div>
-			</div>
-		</div>
-	</header>
+
 	<div class="mdui-container">
 	    <div class="mdui-container-fluid">
 	    <div class="mdui-toolbar nexmoe-item">
