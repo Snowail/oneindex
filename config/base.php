@@ -3,7 +3,7 @@
   'password' => 'oneindex',
   'style' => 'nexmoe',
   'onedrive_root' => '',
-  'cache_type' => 'secache',
+  'cache_type' => 'filecache',
   'cache_expire_time' => 3600,
   'cache_refresh_time' => 600,
   'onedrive_hide' => 'images',
