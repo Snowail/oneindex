@@ -1,11 +1,12 @@
 <?php
+
 class redis_{
         private $redis;
 
         function __construct($config = null){
-                $this->redis = new Redis();
+                $this->redis = new Predis\Client(getenv('REDIS_URL'));
                 if(empty($config)){
-                        $config = 'localhost:6379';
+                        $config = 'getenv('REDIS_URL')';
                 }
                 list($host, $port) = explode(':', $config, 2);
                 $this->redis->pconnect($host, $port);
