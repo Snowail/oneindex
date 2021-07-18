@@ -223,11 +223,5 @@ $(function(){
 
 });
 </script>
-<button class="mdui-fab mdui-fab-fixed mdui-ripple"><i class="mdui-icon material-icons">top</i></button>
-<script>
-    test.onclick = function(){
-        scrollTo(0,0);
-    }
-</script>
 <a href="javascript:thumb();" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">format_list_bulleted</i></a>
 <?php view::end('content');?>
