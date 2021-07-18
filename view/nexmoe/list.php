@@ -1,5 +1,18 @@
 <?php view::layout('layout')?>
-<?php 
+
+<?php
+    function isImage($filename){
+      $types = '(\.jpg$|\.png$|\.jpeg$|\.gif$|\.JPEG$|\.JPG$|\.PNG$|\.GIF$)';
+      if(preg_match($types, trim($filename))){
+          return true;
+      }else{
+          return false;
+      }
+    }
+  ?>
+
+
+<?php
 function file_ico($item){
   $ext = strtolower(pathinfo($item['name'], PATHINFO_EXTENSION));
   if(in_array($ext,['bmp','jpg','jpeg','png','gif'])){
@@ -8,7 +21,7 @@ function file_ico($item){
   if(in_array($ext,['mp4','mkv','webm','avi','mpg', 'mpeg', 'rm', 'rmvb', 'mov', 'wmv', 'mkv', 'asf'])){
   	return "ondemand_video";
   }
-  if(in_array($ext,['ogg','mp3','wav','flac'])){
+  if(in_array($ext,['ogg','mp3','wav'])){
   	return "audiotrack";
   }
   return "insert_drive_file";
@@ -16,7 +29,7 @@ function file_ico($item){
 ?>
 
 <?php view::begin('content');?>
-	
+
 <div class="mdui-container-fluid">
 <?php if($head):?>
 <div class="mdui-typo" style="padding: 20px;">
@@ -46,7 +59,7 @@ function file_ico($item){
 	font-size:100px;
 	display: block;
 	margin-top: 40px;
-	color: #7e7e7e;
+	color: #7ab5ef;
 }
 .thumb .mdui-list-item span{
 	float: left;
@@ -77,11 +90,11 @@ function file_ico($item){
 		  	</a>
 		</li>
 		<?php endif;?>
-		
+
 		<?php foreach((array)$items as $item):?>
 			<?php if(!empty($item['folder'])):?>
 
-		<li class="mdui-list-item mdui-ripple" data-sort data-sort-name="<?php e($item['name']);?>" data-sort-date="<?php echo $item['lastModifiedDateTime'];?>" data-sort-size="<?php echo $item['size'];?>">
+		<li class="mdui-list-item mdui-ripple">
 			<a href="<?php echo get_absolute_path($root.$path.rawurlencode($item['name']));?>">
 			  <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate">
 				<i class="mdui-icon material-icons">folder_open</i>
@@ -92,14 +105,18 @@ function file_ico($item){
 		  	</a>
 		</li>
 			<?php else:?>
-		<li class="mdui-list-item file mdui-ripple" data-sort data-sort-name="<?php e($item['name']);?>" data-sort-date="<?php echo $item['lastModifiedDateTime'];?>" data-sort-size="<?php echo $item['size'];?>">
+		<li class="mdui-list-item file mdui-ripple">
 			<a href="<?php echo get_absolute_path($root.$path).rawurlencode($item['name']);?>" target="_blank">
+              <?php if(isImage($item['name'])):?>
+			  <img class="mdui-img-fluid" src="<?php echo get_absolute_path($root.$path).rawurlencode($item['name']); ?>">
+              <?php else:?>
 			  <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate">
 				<i class="mdui-icon material-icons"><?php echo file_ico($item);?></i>
 		    	<span><?php e($item['name']);?></span>
 			  </div>
 			  <div class="mdui-col-sm-3 mdui-text-right"><?php echo date("Y-m-d H:i:s", $item['lastModifiedDateTime']);?></div>
 			  <div class="mdui-col-sm-2 mdui-text-right"><?php echo onedrive::human_filesize($item['size']);?></div>
+              <?php endif;?>
 		  	</a>
 		</li>
 			<?php endif;?>
@@ -108,14 +125,12 @@ function file_ico($item){
 </div>
 </div>
 <?php if($readme):?>
-<div class="nexmoe-item">
-	<div class="mdui-typo" style="padding: 20px;">
-		<div class="mdui-chip">
-		  <span class="mdui-chip-icon"><i class="mdui-icon material-icons">face</i></span>
-		  <span class="mdui-chip-title">README.md</span>
-		</div>
-		<?php e($readme);?>
+<div class="mdui-typo mdui-shadow-3" style="padding: 20px;margin: 20px; 0">
+	<div class="mdui-chip">
+	  <span class="mdui-chip-icon"><i class="mdui-icon material-icons">face</i></span>
+	  <span class="mdui-chip-title">README.md</span>
 	</div>
+	<?php e($readme);?>
 </div>
 <?php endif;?>
 </div>
@@ -176,12 +191,11 @@ function thumb(){
 				var thumb =(href.indexOf('?') == -1)?'?t=220':'&t=220';
 				$(this).hide();
 				$(this).parent().parent().parent().css("background","url("+href+thumb+")  no-repeat center top");
-				$(this).parent().parent().parent().css("background-size","cover");
 			}
 		});
 	}
 
-}	
+}
 
 $(function(){
 	$('.file a').each(function(){
@@ -201,7 +215,7 @@ $(function(){
         $('li[data-sort]').sortElements(function (a, b) {
             let data_a = $(a).attr("data-sort-" + sort_type), data_b = $(b).attr("data-sort-" + sort_type);
             let rt = data_a.localeCompare(data_b, undefined, {numeric: true});
-            return (sort_order === "less") ? 0-rt : rt;
+            return (sort_order === "more") ? 0-rt : rt;
         });
 
         $(this).attr("data-order", sort_order_to).text("expand_" + sort_order_to);
