@@ -1,28 +1,29 @@
-<?php 
+<?php
 define('VIEW_PATH', ROOT.'view/admin/');
 class AdminController{
 	static $default_config = array(
 	  'site_name' =>'OneIndex',
 	  'password' => 'oneindex',
-	  'style'=>'material',
+	  'style'=>'nexmoe',
 	  'onedrive_root' =>'',
-	  'cache_type'=>'secache',
+	  'cache_type'=>'filecache',
 	  'cache_expire_time' => 3600,
 	  'cache_refresh_time' => 600,
-	  'root_path' => '?',
+	  'onedrive_hide' => 'images',
+	  'root_path' => '',
 	  'show'=> array (
 	  	'stream'=>['txt'],
 	    'image' => ['bmp','jpg','jpeg','png','gif'],
-	    'video5'=>['mp4','webm','mkv'],
-	    'video'=>[],
+	    'video5'=>[],
+	    'video'=>['mp4','webm','mkv'],
 	    'video2'=>['avi','mpg', 'mpeg', 'rm', 'rmvb', 'mov', 'wmv', 'asf', 'ts', 'flv'],
 	    'audio'=>['ogg','mp3','wav'],
 	    'code'=>['html','htm','php', 'css', 'go','java','js','json','txt','sh','md'],
 	    'doc'=>['csv','doc','docx','odp','ods','odt','pot','potm','potx','pps','ppsx','ppsxm','ppt','pptm','pptx','rtf','xls','xlsx']
 	  ),
-	  'images'=>['home'=>false,'public'=>false, 'exts'=>['jpg','png','gif','bmp']]
+	  'images'=>['home'=>false,'public'=>false,'exts'=>['jpg','png','gif','bmp','jpeg'],'authcode'=>'gDxNRqvo75q8cLwQ7lmMJRIdgq7EGMhJ']
 	);
-	
+
 	function __construct(){
 	}
 
@@ -43,7 +44,7 @@ class AdminController{
 		$message = false;
 
 		if($_POST){
-			
+
 			if ($this->cache_exists($_POST['cache_type'])) {
 				$message = '保存成功';
 				config('cache_type', $_POST['cache_type']);
@@ -103,6 +104,7 @@ class AdminController{
 			$config['home'] = empty($_POST['home'])?false:true;
 			$config['public'] = empty($_POST['public'])?false:true;
 			$config['exts'] = explode(" ", $_POST['exts']);
+			$config['authcode'] = $_POST['authcode'];
 			config('images@base',$config);
 		}
 		$config = config('images@base');
@@ -146,7 +148,7 @@ class AdminController{
 		}
 		return view::load('setpass')->with('message', $message);
 	}
-	
+
 	function install(){
 		if(!empty($_GET['code'])){
 			return $this->install_3();
@@ -155,7 +157,7 @@ class AdminController{
 			case 1:
 				return $this->install_1();
 			case 2:
-				return $this->install_2();	
+				return $this->install_2();
 			default:
 				return $this->install_0();
 		}
@@ -183,9 +185,9 @@ class AdminController{
 			$redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].get_absolute_path(dirname($_SERVER['PHP_SELF']));
 		}else{
 			// 非https,调用ju.tn中转
-			$redirect_uri = 'https://oneindex.github.io/';
+			$redirect_uri = 'https://i.snowail.me/';
 		}
-		
+
 		$ru = "https://developer.microsoft.com/en-us/graph/quick-start?appID=_appId_&appName=_appName_&redirectUrl={$redirect_uri}&platform=option-php";
 		$deepLink = "/quickstart/graphIO?publicClientSupport=false&appName=oneindex&redirectUrl={$redirect_uri}&allowImplicitFlow=false&ru=".urlencode($ru);
 		$app_url = "https://apps.dev.microsoft.com/?deepLink=".urlencode($deepLink);
@@ -205,6 +207,6 @@ class AdminController{
 			config('@token', $data);
 		}
 		return view::load('install/install_3')->with('refresh_token',$data['refresh_token']);
-		
+
 	}
 }

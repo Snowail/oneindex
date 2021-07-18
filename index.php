@@ -3,8 +3,8 @@
 require  __DIR__.'/init.php';
 
 //世纪互联
-//onedrive::$api_url = "https://microsoftgraph.chinacloudapi.cn/v1.0";
-//onedrive::$oauth_url = "https://login.partner.microsoftonline.cn/common/oauth2/v2.0";
+onedrive::$api_url = "https://microsoftgraph.chinacloudapi.cn/v1.0";
+onedrive::$oauth_url = "https://login.partner.microsoftonline.cn/common/oauth2/v2.0";
 
 
 /**
@@ -55,6 +55,8 @@ if( ($_COOKIE['admin'] == md5(config('password').config('refresh_token')) || $im
 	}
 }
 
+//API上传文件
+route::any('/api/v1/upload','ImagesController@upload');
 
 /**
  *    列目录

@@ -15,16 +15,7 @@ $mpd =  str_replace("thumbnail","videomanifest",$item['thumb'])."&part=index&for
 <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
 <div class="mdui-container-fluid">
 	<div class="nexmoe-item">
-	<div class="mdui-center" id="dplayer"></div>
-	<!-- 固定标签 -->
-	<div class="mdui-textfield">
-	  <label class="mdui-textfield-label">下载地址</label>
-	  <input class="mdui-textfield-input" type="text" value="<?php e($url);?>"/>
-	</div>
-	<div class="mdui-textfield">
-	  <label class="mdui-textfield-label">引用地址</label>
-	  <textarea class="mdui-textfield-input"><video><source src="<?php e($url);?>" type="video/mp4"></video></textarea>
-	</div>
+		<div class="mdui-center" id="dplayer"></div>
 	</div>
 </div>
 <script>

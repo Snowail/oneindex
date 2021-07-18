@@ -3,16 +3,27 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
-	<title><?php e(config('site_name'));?></title>
+	<title><?php e(config('site_name'));?> - 私人云服务</title>
+	<link rel="shortcut icon" href="/theme/favicon.ico">
 	<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.1/css/mdui.css">
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-	<style>
-		body{background-color:#f2f5fa;padding-bottom:60px;background-position:center bottom;background-repeat:no-repeat;background-attachment:fixed}.nexmoe-item{margin:20px -8px 0!important;padding:15px!important;border-radius:5px;background-color:#fff;-webkit-box-shadow:0 .5em 3em rgba(161,177,204,.4);box-shadow:0 .5em 3em rgba(161,177,204,.4);background-color:#fff}.mdui-img-fluid,.mdui-video-fluid{border-radius:5px;border:1px solid #eee}.mdui-list{padding:0}.mdui-list-item{margin:0!important;border-radius:5px;padding:0 10px 0 5px!important;border:1px solid #eee;margin-bottom:10px!important}.mdui-list-item:last-child{margin-bottom:0!important}.mdui-list-item:first-child{border:none}.mdui-toolbar{width:auto;margin-top:60px!important}.mdui-appbar .mdui-toolbar{height:56px;font-size:16px}.mdui-toolbar>*{padding:0 6px;margin:0 2px;opacity:.5}.mdui-toolbar>.mdui-typo-headline{padding:0 16px 0 0}.mdui-toolbar>i{padding:0}.mdui-toolbar>a:hover,a.mdui-typo-headline,a.active{opacity:1}.mdui-container{max-width:980px}.mdui-list>.th{background-color:initial}.mdui-list-item>a{width:100%;line-height:48px}.mdui-toolbar>a{padding:0 16px;line-height:30px;border-radius:30px;border:1px solid #eee}.mdui-toolbar>a:last-child{opacity:1;background-color:#1e89f2;color:#ffff}@media screen and (max-width:980px){.mdui-list-item .mdui-text-right{display:none}.mdui-container{width:100%!important;margin:0}.mdui-toolbar>*{display:none}.mdui-toolbar>a:last-child,.mdui-toolbar>.mdui-typo-headline,.mdui-toolbar>i:first-child{display:block}}
-	</style>
+	<link rel="stylesheet" href="/theme/style.css">
 	<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.1/js/mdui.min.js"></script>
 </head>
 <body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue">
-
+	<header class="nav">
+		<div class="navSize">
+			<a href="/"><img class="avatar" src="//q.qlogo.cn/g?b=qq&nk=791270330&s=100"/></a>
+			<div class="navRight">
+				<ul class="navul">
+					<!-- <li class="navli"><a href="/images">图床</a></li> -->
+					<li class="navli"><a href="https://ihopess.layne666.cn" target="_blank">iHopess</a></li>
+					<li class="navli"><a href="https://layne666.cn" target="_blank">博客</a></li>
+					<li class="navli"><a href="/login" target="_blank">登陆</a></li>
+				</ul>
+				<div class="icon"></div>
+			</div>
+		</div>
+	</header>
 	<div class="mdui-container">
 	    <div class="mdui-container-fluid">
 	    <div class="mdui-toolbar nexmoe-item">
